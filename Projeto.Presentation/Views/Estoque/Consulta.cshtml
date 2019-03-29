@@ -1,0 +1,68 @@
+﻿@model List<Projeto.Presentation.Models.EstoqueConsultaViewModel>
+
+@{
+    ViewBag.Title = "Consulta";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@section scripts{
+
+    <script>
+        function confirmarExclusao(nome) {
+            return confirm('Deseja excluir o Estoque ' + nome + "?");
+        }
+    </script>
+    
+}
+
+<h4>Consulta de Estoques</h4>
+Listagem de estoques cadastrados
+<hr />
+
+<div>
+    @ViewData["Mensagem"]
+    @TempData["Mensagem"]
+</div>
+
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nome do Estoque</th>
+            <th>Descrição</th>
+            <th>Operações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.IdEstoque</td>
+                <td>@item.Nome</td>
+                <td>@item.Descricao</td>
+                <td>
+
+                    <a href="/Estoque/Edicao/@item.IdEstoque" 
+                       class="btn btn-primary btn-sm">
+                        Atualizar
+                    </a>
+
+                    <a href="/Estoque/Exclusao/@item.IdEstoque" 
+                       class="btn btn-danger btn-sm"
+                       onclick="return confirmarExclusao('@item.Nome');">
+                        Excluir
+                    </a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">
+                Quantidade de registros: @Model.Count
+            </td>
+        </tr>
+    </tfoot>
+</table>
+

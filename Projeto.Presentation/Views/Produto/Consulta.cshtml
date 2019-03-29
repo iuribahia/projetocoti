@@ -1,0 +1,56 @@
+﻿@model List<Projeto.Presentation.Models.ProdutoConsultaViewModel>
+
+@{
+    ViewBag.Title = "Consulta";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h4>Consulta de Produtos</h4>
+Listagem de produtos cadastrados
+<hr />
+
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nome do Produto</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Estoque</th>
+            <th>Operações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IdProduto</td>
+                <td>@item.Nome</td>
+                <td>@item.Preco.ToString("c")</td>
+                <td>@item.Quantidade</td>
+                <td>@item.NomeEstoque</td>
+                <td>
+
+                    <a href="/Produto/Edicao/@item.IdProduto"
+                       class="btn btn-primary btn-sm">
+                        Atualizar
+                    </a>
+
+                    <a href="/Produto/Exclusao/@item.IdProduto"
+                       class="btn btn-danger btn-sm">
+                        Excluir
+                    </a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="6">
+                Quantidade de registros: @Model.Count
+            </td>
+        </tr>
+    </tfoot>
+</table>
+

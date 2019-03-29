@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Projeto</title>
+
+    <!-- folha de estilo CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        html, body {
+            height: 100%;
+            background-color: #ccc;
+        }
+
+        .fill {
+            min-height: 100%;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <!-- INICIO -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Sistema Modelo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Home/Index">Página inicial <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Manter Estoques
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/Estoque/Cadastro">Cadastrar Estoques</a>
+                        <a class="dropdown-item" href="/Estoque/Consulta">Consultar Estoques</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Manter Produtos
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/Produto/Cadastro">Cadastrar Produtos</a>
+                        <a class="dropdown-item" href="/Produto/Consulta">Consultar Produtos</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="text-white">
+                <strong>Seja bem vindo ao sistema</strong>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container fill" style="background-color: #fff; padding: 30px;">
+
+        <h2>Sistema de Controle de Produtos</h2>
+        Aula de C# WebDeveloper - Turma Noite
+        <br />
+        <a href="/Home/Index">Página inicial</a>
+        <hr />
+
+        <!-- MAIN CONTENT -->
+        @RenderBody()
+
+    </div>
+    <!-- FIM -->
+
+    <!-- arquivos javascript -->
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @RenderSection("scripts", required : false)
+
+</body>
+</html>
